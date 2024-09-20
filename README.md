@@ -57,9 +57,9 @@ To run the examples (for windows atleast), you need hidapi.dll included with the
 
 ### Resources
 
-[text](https://github.com/dekuNukem/Nintendo_Switch_Reverse_Engineering)
-[text](https://github.com/Davidobot/BetterJoy)
+https://github.com/dekuNukem/Nintendo_Switch_Reverse_Engineering
+https://github.com/Davidobot/BetterJoy
 
 It would not have been possible for this to be made without the above repos.
 
-## This project structure is based on [text](https://github.com/paddy-exe/GDExtensionSummator)
+This project structure is based on https://github.com/paddy-exe/GDExtensionSummator
