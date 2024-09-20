@@ -1,0 +1,102 @@
+[gd_scene load_steps=6 format=3 uid="uid://bi6v67hhrle4b"]
+
+[ext_resource type="Script" path="res://egg_tilt/scripts/altinput_popup.gd" id="1_cowy8"]
+[ext_resource type="Theme" uid="uid://dvuejecipvlaw" path="res://egg_tilt/main_menu_theme.tres" id="1_rcdkl"]
+[ext_resource type="Script" path="res://egg_tilt/scripts/scene_button.gd" id="2_dr10v"]
+[ext_resource type="Script" path="res://egg_tilt/scripts/game_controller.gd" id="5_2tnnq"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_pehcf"]
+font_size = 20
+
+[node name="main_menu" type="Control"]
+custom_minimum_size = Vector2(640, 360)
+layout_mode = 3
+anchors_preset = 0
+theme = ExtResource("1_rcdkl")
+
+[node name="AlternateInputPopup" type="PopupPanel" parent="."]
+canvas_item_default_texture_filter = 0
+size = Vector2i(408, 208)
+theme = ExtResource("1_rcdkl")
+script = ExtResource("1_cowy8")
+
+[node name="Stuff" type="VBoxContainer" parent="AlternateInputPopup"]
+custom_minimum_size = Vector2(300, 200)
+offset_left = 3.0
+offset_top = 3.0
+offset_right = 405.0
+offset_bottom = 205.0
+
+[node name="Label" type="Label" parent="AlternateInputPopup/Stuff"]
+custom_minimum_size = Vector2(0, 20)
+layout_mode = 2
+text = "cONNECT cONTROLLERS"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="GamepadList" type="ItemList" parent="AlternateInputPopup/Stuff"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Buttons" type="HBoxContainer" parent="AlternateInputPopup/Stuff"]
+layout_mode = 2
+
+[node name="Steal" type="Button" parent="AlternateInputPopup/Stuff/Buttons"]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 10
+text = "Steal"
+
+[node name="Return" type="Button" parent="AlternateInputPopup/Stuff/Buttons"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "rETURN"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+custom_minimum_size = Vector2(0, 360)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -77.0
+offset_top = -180.0
+offset_right = 77.0
+offset_bottom = 180.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="Title" type="Label" parent="VBoxContainer"]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+text = "eGG tILT"
+label_settings = SubResource("LabelSettings_pehcf")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Play" type="Button" parent="VBoxContainer"]
+custom_minimum_size = Vector2(200, 50)
+layout_mode = 2
+text = "pLAY"
+script = ExtResource("2_dr10v")
+path = "res://egg_tilt/scenes/level.tscn"
+start_focused = true
+
+[node name="AltInputButton" type="Button" parent="VBoxContainer"]
+custom_minimum_size = Vector2(200, 50)
+layout_mode = 2
+text = "cONTROLLERS"
+
+[node name="Control" type="Control" parent="."]
+anchors_preset = 0
+offset_right = 81.0
+offset_bottom = 69.0
+script = ExtResource("5_2tnnq")
+
+[connection signal="about_to_popup" from="AlternateInputPopup" to="AlternateInputPopup" method="_on_about_to_popup"]
+[connection signal="pressed" from="AlternateInputPopup/Stuff/Buttons/Steal" to="AlternateInputPopup" method="_on_steal_pressed"]
+[connection signal="pressed" from="AlternateInputPopup/Stuff/Buttons/Return" to="AlternateInputPopup" method="_on_return_pressed"]
+[connection signal="pressed" from="VBoxContainer/AltInputButton" to="AlternateInputPopup" method="popup_centered"]

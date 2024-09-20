@@ -1,0 +1,50 @@
+[gd_resource type="Theme" load_steps=9 format=3 uid="uid://dvuejecipvlaw"]
+
+[ext_resource type="Texture2D" uid="uid://cb37k1ers1xfa" path="res://egg_tilt/sprites/ui/9slicegreenbutton1.png" id="1_llkuw"]
+[ext_resource type="Texture2D" uid="uid://dno6lcn4kv7ab" path="res://egg_tilt/sprites/ui/9slicegreenbutton2.png" id="1_ojygb"]
+[ext_resource type="Texture2D" uid="uid://ugmsk4rl8jsp" path="res://egg_tilt/sprites/ui/9slicepanel.png" id="1_tp5p7"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_3fdka"]
+texture = ExtResource("1_ojygb")
+texture_margin_left = 4.0
+texture_margin_top = 4.0
+texture_margin_right = 4.0
+texture_margin_bottom = 7.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_m37e2"]
+texture = ExtResource("1_llkuw")
+texture_margin_left = 4.0
+texture_margin_top = 3.0
+texture_margin_right = 4.0
+texture_margin_bottom = 6.0
+region_rect = Rect2(0, 0, 16, 16)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_jwy7t"]
+texture = ExtResource("1_llkuw")
+texture_margin_left = 5.0
+texture_margin_top = 5.0
+texture_margin_right = 5.0
+texture_margin_bottom = 7.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_by0bl"]
+texture = ExtResource("1_tp5p7")
+texture_margin_left = 4.0
+texture_margin_top = 4.0
+texture_margin_right = 4.0
+texture_margin_bottom = 4.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_42t1n"]
+texture = ExtResource("1_tp5p7")
+texture_margin_left = 3.0
+texture_margin_top = 3.0
+texture_margin_right = 3.0
+texture_margin_bottom = 3.0
+
+[resource]
+default_font_size = 10
+Button/styles/focus = null
+Button/styles/hover = SubResource("StyleBoxTexture_3fdka")
+Button/styles/normal = SubResource("StyleBoxTexture_m37e2")
+Button/styles/pressed = SubResource("StyleBoxTexture_jwy7t")
+Panel/styles/panel = SubResource("StyleBoxTexture_by0bl")
+PopupPanel/styles/panel = SubResource("StyleBoxTexture_42t1n")

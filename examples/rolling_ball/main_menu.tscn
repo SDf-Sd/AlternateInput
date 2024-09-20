@@ -1,0 +1,61 @@
+[gd_scene load_steps=4 format=3 uid="uid://dmq7eda1k7xyo"]
+
+[ext_resource type="Script" path="res://rolling_ball/controller_popup.gd" id="1_0npwk"]
+[ext_resource type="Script" path="res://rolling_ball/play_button.gd" id="1_4iyal"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_oyb86"]
+font_size = 40
+
+[node name="MainMenu" type="Control"]
+clip_contents = true
+layout_mode = 3
+anchors_preset = 0
+offset_right = 1152.0
+offset_bottom = 648.0
+
+[node name="Functional" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -112.5
+offset_top = -181.0
+offset_right = 112.5
+offset_bottom = 181.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Title" type="VBoxContainer" parent="Functional"]
+layout_mode = 2
+
+[node name="Text" type="Label" parent="Functional/Title"]
+layout_mode = 2
+text = "Bally Folly"
+label_settings = SubResource("LabelSettings_oyb86")
+horizontal_alignment = 1
+
+[node name="Buttons" type="VBoxContainer" parent="Functional"]
+custom_minimum_size = Vector2(225, 300)
+layout_mode = 2
+alignment = 1
+
+[node name="Play" type="Button" parent="Functional/Buttons"]
+custom_minimum_size = Vector2(0, 60)
+layout_mode = 2
+text = "Play"
+script = ExtResource("1_4iyal")
+
+[node name="ConnectControllers" type="Button" parent="Functional/Buttons"]
+custom_minimum_size = Vector2(0, 60)
+layout_mode = 2
+text = "Connect Controllers"
+
+[node name="ControllerPopup" type="PopupMenu" parent="Functional/Buttons/ConnectControllers"]
+title = "Connect Controller"
+size = Vector2i(256, 256)
+script = ExtResource("1_0npwk")
+
+[connection signal="pressed" from="Functional/Buttons/Play" to="Functional/Buttons/Play" method="_on_pressed"]
+[connection signal="pressed" from="Functional/Buttons/ConnectControllers" to="Functional/Buttons/ConnectControllers/ControllerPopup" method="_on_connect_controllers_pressed"]

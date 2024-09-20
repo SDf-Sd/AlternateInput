@@ -1,0 +1,144 @@
+[gd_scene load_steps=15 format=3 uid="uid://jc5nqj3u45a1"]
+
+[ext_resource type="Script" path="res://rolling_ball/tilting_platform.gd" id="1_4nmes"]
+[ext_resource type="Script" path="res://rolling_ball/player.gd" id="1_q02w5"]
+[ext_resource type="Script" path="res://rolling_ball/increment_label.gd" id="4_7ju44"]
+[ext_resource type="PackedScene" uid="uid://bikraqxrkxdj3" path="res://rolling_ball/collectible.tscn" id="4_pkfnp"]
+[ext_resource type="Script" path="res://rolling_ball/retry_button.gd" id="5_332bj"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_u3fgw"]
+rough = true
+bounce = 1.0
+absorbent = true
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_yg6ev"]
+top_radius = 20.0
+bottom_radius = 30.0
+height = 10.0
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_b63y2"]
+points = PackedVector3Array(-1.90735e-06, -5, -30, -2.94244, -5, -29.859, -1.90735e-06, -3.0002, -28.0031, 2.93657, -5, -29.859, -3.90564, 5, -19.6163, -2.74863, -3.0002, -27.868, -1.96163, 5, -19.9041, -1.90735e-06, 5, -20.0039, -5.85552, -5, -29.4244, -5.46789, -3.0002, -27.4628, 1.95576, 5, -19.9041, 2.74276, -3.0002, -27.868, 3.89977, 5, -19.6163, 5.46202, -3.0002, -27.4628, 5.84965, -5, -29.4244, -8.70987, -5, -28.7138, -7.55286, -1.00039, -24.8845, -5.80854, 5, -19.1406, 5.80266, 5, -19.1406, 7.54698, -1.00039, -24.8845, 8.70399, -5, -28.7138, -11.482, -5, -27.7212, -7.65858, 5, -18.4828, 7.6527, 5, -18.4828, 11.4761, -5, -27.7212, -14.1425, -5, -26.4585, -13.2028, -3.0002, -24.6966, -9.43226, 5, -17.6429, 9.42639, 5, -17.6429, 13.1969, -3.0002, -24.6966, 14.1366, -5, -26.4585, -16.668, -5, -24.9491, -15.5579, -3.0002, -23.287, -12.2279, 2.99922, -18.2948, -11.112, 5, -16.6327, 11.1061, 5, -16.6327, 12.222, 2.99922, -18.2948, 15.5521, -3.0002, -23.287, 16.6621, -5, -24.9491, -19.0348, -5, -23.193, -16.4977, -1.00039, -20.1038, -12.6919, 5, -15.464, 12.686, 5, -15.464, 16.4918, -1.00039, -20.1038, 19.029, -5, -23.193, -21.2138, -5, -21.2138, -19.8042, -3.0002, -19.8042, -14.1425, 5, -14.1425, 14.1366, 5, -14.1425, 19.7984, -3.0002, -19.8042, 21.2079, -5, -21.2138, -23.193, -5, -19.0348, -20.1038, -1.00039, -16.4977, -15.464, 5, -12.6919, 15.4581, 5, -12.6919, 20.0979, -1.00039, -16.4977, 23.1872, -5, -19.0348, -24.9491, -5, -16.668, -23.287, -3.0002, -15.5579, -16.6327, 5, -11.112, -18.2948, 2.99922, -12.2279, 16.6269, 5, -11.112, 18.289, 2.99922, -12.2279, 23.2811, -3.0002, -15.5579, 24.9432, -5, -16.668, -24.6966, -3.0002, -13.2028, -26.4585, -5, -14.1425, -17.6429, 5, -9.43226, 17.637, 5, -9.43226, 24.6907, -3.0002, -13.2028, 26.4526, -5, -14.1425, -27.7212, -5, -11.482, -18.4828, 5, -7.65858, 18.4769, 5, -7.65858, 27.7153, -5, -11.482, -28.7138, -5, -8.70987, -19.1406, 5, -5.80854, -24.8845, -1.00039, -7.55286, 19.1347, 5, -5.80854, 24.8786, -1.00039, -7.55286, 28.7079, -5, -8.70987, -29.4244, -5, -5.85552, -27.4628, -3.0002, -5.46789, -19.6163, 5, -3.90564, 19.6104, 5, -3.90564, 27.4569, -3.0002, -5.46789, 29.4186, -5, -5.85552, -29.859, -5, -2.94244, -19.9041, 5, -1.96163, -27.868, -3.0002, -2.74863, 19.8982, 5, -1.96163, 27.8622, -3.0002, -2.74863, 29.8532, -5, -2.94244, -30, -5, -1.90735e-06, -28.0031, -3.0002, -1.90735e-06, -20.0039, 5, -1.90735e-06, 19.998, 5, -1.90735e-06, 30, -5, -1.90735e-06, -29.859, -5, 2.93657, -19.9041, 5, 1.95576, 19.8982, 5, 1.95576, 29.8532, -5, 2.93657, -27.868, -3.0002, 2.74276, -29.4244, -5, 5.84965, -27.4628, -3.0002, 5.46202, -19.6163, 5, 3.89977, 19.6104, 5, 3.89977, 27.8622, -3.0002, 2.74276, 27.4569, -3.0002, 5.46202, 29.4186, -5, 5.84965, -28.7138, -5, 8.70399, -19.1406, 5, 5.80266, -24.8845, -1.00039, 7.54698, 19.1347, 5, 5.80266, 24.8786, -1.00039, 7.54698, 28.7079, -5, 8.70399, -27.7212, -5, 11.4761, -18.4828, 5, 7.6527, 18.4769, 5, 7.6527, 27.7153, -5, 11.4761, -26.4585, -5, 14.1366, -24.6966, -3.0002, 13.1969, -17.6429, 5, 9.42639, 17.637, 5, 9.42639, 24.6907, -3.0002, 13.1969, 26.4526, -5, 14.1366, -24.9491, -5, 16.6621, -23.287, -3.0002, 15.5521, -18.2948, 2.99922, 12.222, -16.6327, 5, 11.1061, 18.289, 2.99922, 12.222, 23.2811, -3.0002, 15.5521, 16.6269, 5, 11.1061, 24.9432, -5, 16.6621, -23.193, -5, 19.029, -20.1038, -1.00039, 16.4918, -15.464, 5, 12.686, 15.4581, 5, 12.686, 23.1872, -5, 19.029, 20.0979, -1.00039, 16.4918, -21.2138, -5, 21.2079, -19.8042, -3.0002, 19.7984, -14.1425, 5, 14.1366, 14.1366, 5, 14.1366, 19.7984, -3.0002, 19.7984, 21.2079, -5, 21.2079, -19.0348, -5, 23.1872, -16.4977, -1.00039, 20.0979, -12.6919, 5, 15.4581, 12.686, 5, 15.4581, 19.029, -5, 23.1872, 16.4918, -1.00039, 20.0979, -16.668, -5, 24.9432, -15.5579, -3.0002, 23.2811, -12.2279, 2.99922, 18.289, -11.112, 5, 16.6269, 11.1061, 5, 16.6269, 12.222, 2.99922, 18.289, 15.5521, -3.0002, 23.2811, 16.6621, -5, 24.9432, -14.1425, -5, 26.4526, -13.2028, -3.0002, 24.6907, -9.43226, 5, 17.637, 9.42639, 5, 17.637, 13.1969, -3.0002, 24.6907, 14.1366, -5, 26.4526, -11.482, -5, 27.7153, -7.65858, 5, 18.4769, 11.4761, -5, 27.7153, 7.6527, 5, 18.4769, -8.70987, -5, 28.7079, -7.55286, -1.00039, 24.8786, -5.80854, 5, 19.1347, 8.70399, -5, 28.7079, 5.80266, 5, 19.1347, 7.54698, -1.00039, 24.8786, -5.85552, -5, 29.4186, -5.46789, -3.0002, 27.4569, -3.90564, 5, 19.6104, 3.89977, 5, 19.6104, 5.46202, -3.0002, 27.4569, 5.84965, -5, 29.4186, -2.94244, -5, 29.8532, -2.74863, -3.0002, 27.8622, -1.96163, 5, 19.8982, 1.95576, 5, 19.8982, 2.74276, -3.0002, 27.8622, 2.93657, -5, 29.8532, -1.90735e-06, 5, 19.998, -1.90735e-06, -5, 30)
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_6lb56"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_a74qf"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_mnw5m"]
+albedo_color = Color(1, 0, 0.223529, 1)
+metallic = 0.13
+roughness = 0.21
+
+[sub_resource type="SphereMesh" id="SphereMesh_lnu85"]
+material = SubResource("StandardMaterial3D_mnw5m")
+
+[sub_resource type="LabelSettings" id="LabelSettings_olatg"]
+font_size = 32
+outline_color = Color(0, 0, 0, 1)
+shadow_size = 10
+shadow_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0774t"]
+bg_color = Color(0.168627, 0.168627, 0.168627, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[node name="RollingBall" type="Node3D"]
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(-1, 3.79117e-08, -7.87747e-08, 0, 0.901077, 0.433659, 8.74228e-08, 0.433659, -0.901077, 0, 5.62034, -13.6209)
+
+[node name="Platform" type="AnimatableBody3D" parent="."]
+physics_material_override = SubResource("PhysicsMaterial_u3fgw")
+sync_to_physics = false
+script = ExtResource("1_4nmes")
+collectible_scene = ExtResource("4_pkfnp")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Platform"]
+mesh = SubResource("CylinderMesh_yg6ev")
+
+[node name="CollisionShape3D3" type="CollisionShape3D" parent="Platform"]
+shape = SubResource("ConvexPolygonShape3D_b63y2")
+
+[node name="Ball" type="RigidBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6, 0)
+mass = 10.0
+physics_material_override = SubResource("PhysicsMaterial_6lb56")
+script = ExtResource("1_q02w5")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Ball"]
+shape = SubResource("SphereShape3D_a74qf")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Ball"]
+mesh = SubResource("SphereMesh_lnu85")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.320431, 0.947272, 0, -0.947272, 0.320431, 0, 0, 0)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Score" type="Label" parent="CanvasLayer"]
+custom_minimum_size = Vector2(0, 100)
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -36.0
+offset_right = 36.0
+offset_bottom = 26.0
+grow_horizontal = 2
+text = "Score: XX"
+label_settings = SubResource("LabelSettings_olatg")
+vertical_alignment = 1
+script = ExtResource("4_7ju44")
+
+[node name="Popup" type="PopupPanel" parent="CanvasLayer"]
+size = Vector2i(264, 264)
+theme_override_styles/panel = SubResource("StyleBoxFlat_0774t")
+
+[node name="Control" type="Control" parent="CanvasLayer/Popup"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 264.0
+offset_bottom = 264.0
+
+[node name="Buttons" type="VBoxContainer" parent="CanvasLayer/Popup/Control"]
+custom_minimum_size = Vector2(192, 256)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -96.0
+offset_top = -104.0
+offset_right = 96.0
+offset_bottom = 152.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="CanvasLayer/Popup/Control/Buttons"]
+custom_minimum_size = Vector2(0, 60)
+layout_mode = 2
+text = "Game Over!"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Retry" type="Button" parent="CanvasLayer/Popup/Control/Buttons"]
+custom_minimum_size = Vector2(128, 60)
+layout_mode = 2
+text = "Retry"
+script = ExtResource("5_332bj")
+
+[node name="Quit" type="Button" parent="CanvasLayer/Popup/Control/Buttons"]
+custom_minimum_size = Vector2(0, 60)
+layout_mode = 2
+text = "Main Menu"
+
+[node name="Camera3D2" type="Camera3D" parent="."]
+transform = Transform3D(-1, 8.74228e-08, 3.82137e-15, 0, -4.37114e-08, 1, 8.74228e-08, 1, 4.37114e-08, 0, 30.3246, 0)
+current = true
+
+[connection signal="collectible_collected" from="Platform" to="CanvasLayer/Score" method="increment"]
+[connection signal="has_fallen" from="Ball" to="CanvasLayer/Popup" method="popup_centered"]
+[connection signal="pressed" from="CanvasLayer/Popup/Control/Buttons/Retry" to="CanvasLayer/Popup/Control/Buttons/Retry" method="_on_pressed"]
