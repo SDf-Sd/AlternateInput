@@ -1,5 +1,9 @@
 # AlternateInput
 
+## THIS REPO IS DEPRECATED
+With Godot 4.x now using SDL3 the current approach of using `hidapi` to "steal" the gamepad is no longer necessary. With SDL3, the setup for the Joycon controllers can be handled by SDL functions but the gyroscope/accelerometer packets would still need to have calculations done to find the actual rotation.
+I may look into this in the future and update the repo.
+
 A GDExtension that allows Godot to read alternative inputs from support gamepads.
 The only gamepads supported right now are the Nintendo Switch Pro Controller and the JoyCons (not fully tested)
 
