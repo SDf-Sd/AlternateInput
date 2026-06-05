@@ -2,6 +2,8 @@
 With Godot 4.x now using SDL3 the current approach of using `hidapi` to "steal" the gamepad is no longer necessary. With SDL3, the setup for the Joycon controllers can be handled by SDL functions but the gyroscope/accelerometer packets would still need to have calculations done to find the actual rotation.
 I may look into this in the future and update the repo.
 
+Seems that it has already worked its way into the engine itself https://github.com/godotengine/godot/pull/111679.
+
 [Video of AlternateInput once working](https://youtu.be/57ZWgvWNzpE)
 # AlternateInput
 
